@@ -1,0 +1,18 @@
+@model midterm_project.Models.Pets
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Available for Adoption</h1>
+    <div>
+        <h2>@Model.PetName, @Model.PetAge</h2>
+        <img src="@Model.ImgUrl" alt="Pet Photo">
+        <p>@Model.PetDescription</p>
+        <a class="btn btn-sm btn-secondary mb-3" asp-controller="Pet" asp-action="Edit" asp-route-id="@Model.PetId">
+            Modify @Model.PetName
+        </a>
+    </div>
+</div>
+<a class="btn btn-sm btn-light" asp-controller="Pet" asp-action="List">Back</a>

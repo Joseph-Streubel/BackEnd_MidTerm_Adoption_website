@@ -1,0 +1,51 @@
+@model midterm_project.Models.Pets
+
+@{
+    ViewData["Title"] = "Pet";
+}
+
+<form asp-controller="Pet" asp-action="Edit" method="post">
+    <h1 class="display-4 text-center mb-5">Adoption Details</h1>
+
+    <div class="form-group">
+        <div class="row m-3 input-group">
+            <label class="control-label col-md-3 offset-md-1" asp-for="PetName">Name: </label>
+            <input class="form-control col-md-7" asp-for="PetName" />
+            <div class="col-12 text-danger text-end">
+                <span asp-validation-for="PetName"></span>
+            </div>
+        </div>
+
+        <div class="row m-3 input-group">
+            <label class="control-label col-md-3 offset-md-1" asp-for="ImgUrl">Image URL: </label>
+            <input class="form-control col-md-7" asp-for="ImgUrl" />
+            <div class="col-12 text-danger text-end">
+                <span asp-validation-for="ImgUrl"></span>
+            </div>
+        </div>
+
+        <div class="row m-3 input-group">
+            <label class="control-label col-md-3 offset-md-1" asp-for="PetDescription">Description: </label>
+            <textarea class="form-control col-md-7" asp-for="PetDescription"></textarea>
+            <div class="col-12 text-danger text-end">
+                <span asp-validation-for="PetDescription"></span>
+            </div>
+        </div>
+
+        <div class="row m-3 input-group">
+            <label class="control-label col-md-3 offset-md-1" asp-for="PetAge">Age: </label>
+            <input class="form-control col-md-7" asp-for="PetAge" />
+            <div class="col-12 text-danger text-end">
+                <span asp-validation-for="PetAge"></span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <input type="hidden" asp-for="PetId" />
+    <a class="btn btn-sm btn-danger mb-3 ml-3" asp-controller="Pet" asp-action="Delete" asp-route-id="@Model.PetId">Delete Pet</a>
+    <input type="submit" class="btn btn-sm btn-primary float-end" value="Save">
+</form>
+
+<a class="btn btn-sm btn-light" asp-controller="Pet" asp-action="List">Back</a>

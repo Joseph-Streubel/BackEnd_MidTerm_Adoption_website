@@ -1,0 +1,35 @@
+@model IEnumerable<midterm_project.Models.Pets>
+
+@{
+    ViewData["Title"] = "Pets List";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Available for Adoption</h1>
+    <div class="list-wrapper">
+        @foreach (var pet in Model){
+            <div>
+            <h2>@pet.PetName</h2>
+            <img src="@pet.ImgUrl" alt="pet photo">
+            <div>
+                <a class="btn btn-sm btn-secondary mb-3" asp-controller="Pet" asp-action="Detail" asp-route-id="@pet.PetId">
+                    Details
+                </a>
+                <a class="btn btn-sm btn-secondary mb-3" asp-controller="Pet" asp-action="Edit" asp-route-id="@pet.PetId">
+                    Edit
+                </a>
+                <a class="btn btn-sm btn-danger mb-3 ml-3" asp-controller="Pet" asp-action="Delete"
+                asp-route-id="@pet.PetId">
+                    Delete
+                </a>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div>
+        <a class="btn btn-primary mt-3 clearfix" asp-controller="Pet" asp-action="New">Create New</a>
+    </div>
+
+
+</div>
